@@ -1,5 +1,6 @@
 package words;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +8,8 @@ import java.util.Map;
 
 import constants.Constants;
 
-public class Word {
+public class Word implements Serializable{
+	private static final long serialVersionUID = 4079382235045708574L;
 	private Map<Language, List<String>> wordMap;
 	
 	public Word(Map<Language, List<String>> wordMap) {
@@ -71,7 +73,7 @@ public class Word {
 		}
 		
 		for(int i = 1 ; i < l.size(); i++) {
-			sb.append(Constants.optionsDelimiter + " " + l.get(i));
+			sb.append(Constants.OPTIONS_DELIMITER + " " + l.get(i));
 		}
 		
 		return sb.toString();

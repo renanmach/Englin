@@ -1,50 +1,41 @@
 package RememberIt;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 import words.Language;
 import words.Word;
 
-public class RememberIt {
+public class RememberIt implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private List<Word> words;
+	private Random random;
+	private Language langFrom, langTo;
 	
-	public RememberIt(List<Word> words) {
+	public RememberIt(List<Word> words, Language langFrom, Language langTo) {
 		this.words = words;
+		this.random = new Random();
+		this.langFrom = langFrom;
+		this.langTo = langTo;
 	}
 	
-	public void start(Language langFrom, Language langTo, boolean removeWords, Scanner scanner) {
-		Random random = new Random();
-
-		int id;
-		System.out.println("Starting RememberIt from " + langFrom + " to " + langTo);
-		System.out.println("    Total: " + words.size() + " words\n");
+	// get a random word from the list of words and remove it if chosen so
+	public String[] getNextWord(boolean removeWords) {
+		if(words.size() < 1) 
+			return null;
 		
-		String in;
+		int id = random.nextInt(words.size());
 		
-		int i = 0;
-		while(words.size() > 0) {
-			id = random.nextInt(words.size());
-			
-			System.out.println(++i + " " + words.get(id).getWordsFromLanguage(langFrom));
-			System.out.print("Press enter...");
-			
-			scanner.nextLine();
-			
-			System.out.println(words.get(id).getWordsFromLanguage(langTo));
-			System.out.println();
-			
-			System.out.print("Press enter or 99 to exit...\n");
-			in = scanner.nextLine();
-			
-			if(in.equals("99")) {
-				System.out.println("Leaving RememberIt!\n");
-				break;
-			}
-			
-			if(removeWords)
-				words.remove(id);
-		}
+		String[] result = new String[]
+				{
+					words.get(id).getWordsFromLanguage(langFrom),
+					words.get(id).getWordsFromLanguage(langTo)
+				};
+		
+		if(removeWords)
+			words.remove(id);
+		
+		return result;
 	}
 }

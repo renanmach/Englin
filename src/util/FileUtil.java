@@ -17,11 +17,11 @@ public class FileUtil {
 		
 		try(BufferedReader br = new BufferedReader(new FileReader(input))) {
 			String line = br.readLine();
-			String[] parts = line.split(Constants.languagesDelimiter);
+			String[] parts = line.split(Constants.LANGUAGES_DELIMITER);
 			Language l1, l2;
 			
-			l1 = Language.valueOf(parts[0].toUpperCase());
-			l2 = Language.valueOf(parts[1].toUpperCase());
+			l1 = Language.valueOf(parts[0].toLowerCase());
+			l2 = Language.valueOf(parts[1].toLowerCase());
 			
 			int i = 1;
 			while(br.ready()) {
@@ -31,15 +31,15 @@ public class FileUtil {
 				if(line.isEmpty() || line.startsWith("#"))
 					continue;
 				
-				parts = line.split(Constants.languagesDelimiter);
+				parts = line.split(Constants.LANGUAGES_DELIMITER);
 				
 				if(parts.length != 2) {
 					System.err.println("Warning line " + i + ": " + line);
 					continue;
 				}
 				
-				List<String> languageOneParts = Arrays.asList(parts[0].split(Constants.optionsDelimiter));
-				List<String> languageTwoParts = Arrays.asList(parts[1].split(Constants.optionsDelimiter));
+				List<String> languageOneParts = Arrays.asList(parts[0].split(Constants.OPTIONS_DELIMITER));
+				List<String> languageTwoParts = Arrays.asList(parts[1].split(Constants.OPTIONS_DELIMITER));
 		
 				Word word = new Word();
 				

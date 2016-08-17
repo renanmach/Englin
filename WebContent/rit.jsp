@@ -36,8 +36,8 @@
         
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<%=request.getContextPath()%>/index.jsp"><fmt:message key="navbar.home"/></a></li>
-            <li><a href="<%=request.getContextPath()%>/rememberit.jsp"><fmt:message key="navbar.rememberit"/></a></li>
+            <li><a href="<%=request.getContextPath()%>/index.jsp"><fmt:message key="navbar.home"/></a></li>
+            <li class="active"><a href="<%=request.getContextPath()%>/rememberit.jsp"><fmt:message key="navbar.rememberit"/></a></li>
             <li><a href="#"><fmt:message key="navbar.commas"/></a></li>
             <li><a href="#"><fmt:message key="navbar.prepositions"/></a></li>
           </ul>
@@ -45,21 +45,51 @@
       </div>
     </nav>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
    
     
     
     
     
-    
+     <div id="temp" class="container" >
+		<div class="center-menu" align="center">
+			<form method="post" onsubmit="nextWord(); return false;">
+			<div class="row">
+			</div>
+			<div class="row center">
+				<h2><b>Translate this word</b></h2>
+			</div>
+			
+			<div class="row" style="padding-top:20px;">	
+				<div class="col-lg-1 text-input col-lg-offset-2" id="text-input1" >
+				</div>
+				
+				<div class="col-sm-1" style="color: #6b0000;">
+					<h1><b>></b></h1>
+				</div>
+				
+				<div class="col-lg-1 text-input" id="text-input2">
+				
+				</div>
+			</div>	
+			
+			<div class="row" style="padding-top:20px;">	
+				<div class="col-lg-1 col-lg-offset-9">
+						<input class="btn btn-md btn-danger" type="submit" value="Next">
+				</div>
+			</div>
+			</form>
+	    </div>
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    	
+	   
+    </div>
     
     
     

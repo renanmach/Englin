@@ -1,8 +1,10 @@
 package words;
 
-public enum Language {
-	PORTUGUESE("Portuguese"),
-	ENGLISH("English");
+import java.io.Serializable;
+
+public enum Language implements Serializable{
+	pt("Portuguese"),
+	en("English");
 	
 	
 	private String nameAsString;
