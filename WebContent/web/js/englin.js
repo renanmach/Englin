@@ -28,18 +28,26 @@ function ajaxRequest(url,parameters) {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			// left box
 			if(flag==0) {
-				currentWord++; // show progress
-				// show progress
-				document.getElementById("current_word").innerHTML = currentWord;
-				document.getElementById(tag1).innerHTML = xhttp.responseText;
-				document.getElementById(tag2).innerHTML = "";
-				flag=1;
+				response = xhttp.responseText.trim();
+				
+				// if there is no more words left to be displayed
+				if('endoflist' == response) {
+					restartRememberIt();
+				}
+				
+				else {
+					currentWord++; // show progress
+					// show progress
+					document.getElementById("current_word").innerHTML = currentWord;
+					document.getElementById(tag1).innerHTML = response;
+					document.getElementById(tag2).innerHTML = "";
+					flag=1;
+				}
 			}
 			
 			// right box
 			else {
 				document.getElementById(tag2).innerHTML = xhttp.responseText;
-				
 				flag=0;
 			}
 		}
@@ -47,6 +55,19 @@ function ajaxRequest(url,parameters) {
 	xhttp.open("POST", url+"?"+parameters, true);
 	xhttp.send();
 }
+
+function restartRememberIt() {
+	$("#modal").modal({
+		showClose: false,
+		closeExisting: false
+	});
+	
+	$('#modal').on($.modal.AFTER_CLOSE, function(event, modal) {
+		window.location.replace(getContextPath()+"/rememberit.jsp",null);
+	});
+}
+
+
 
 function getContextPath() {
 	   return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));

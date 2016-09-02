@@ -46,6 +46,10 @@ public class RememberItActionServlet extends HttpServlet {
 				out.println(word[0]);
 				request.getSession().setAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT, word[1]);
 			}
+			else {
+				out.println(Constants.END_OF_LIST);
+				request.getSession().setAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT, Constants.END_OF_LIST);
+			}
 			break;
 		case "1":
 			out.println((String)request.getSession().getAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT));

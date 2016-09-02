@@ -31,8 +31,9 @@ public class RememberIt implements Serializable {
 	
 	// get a random word from the list of words and remove it if chosen so
 	public String[] getNextWord(boolean removeWords) {
-		if(words.size() < 1) 
+		if(words.size() < 1) {
 			return null;
+		}
 		
 		int id = random.nextInt(words.size());
 		

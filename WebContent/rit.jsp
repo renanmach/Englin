@@ -14,6 +14,8 @@
 	<!-- Bootstrap -->
     <link href="<%=request.getContextPath()%>/web/css/bootstrap.css" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/web/css/englin.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/web/css/jquery.modal.css" type="text/css" media="screen" />
          
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -22,6 +24,11 @@
 </head>
 
 <body>
+ 	 <!-- Modal HTML embedded directly into document. It is displayed when the RememberIt finished -->
+	  <div id="modal" style="display:none;">
+	    <p align="center">Finished RemembertIt!<br><a href="#" rel="modal:close">Close</a> or press ESC to go to the RememberIt initial page.</p>
+	  </div>
+
 	<!-- Fixed navbar -->
     <nav class="navbar navbar-custom navbar-fixed-top">
       <div class="container">
@@ -85,25 +92,14 @@
 			</div>
 			</form>
 	    </div>
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    	
-	   
     </div>
-    
-    
-    
-    
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<%=request.getContextPath()%>/web/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<%=request.getContextPath()%>/web/js/bootstrap.min.js"></script>
+    <!-- for the dialog box  -->
+    <script src="<%=request.getContextPath()%>/web/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/web/js/englin.js"></script>
 </body>
 </html>

@@ -53,7 +53,7 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container" style="color:#fff">
 		<!-- Example row of columns -->
 		<div class="row">
 			<div class="col-md-4 col-md-offset-2 vcenter">
