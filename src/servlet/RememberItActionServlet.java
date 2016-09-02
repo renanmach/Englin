@@ -31,9 +31,10 @@ public class RememberItActionServlet extends HttpServlet {
 
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		
 		String type = request.getParameter("type");
 		RememberIt rememberit = (RememberIt) request.getSession().getAttribute(Constants.SESSION_REMEMBERIT_OBJ);
-		
+
 		if(type == null) {
 			return;
 		}
@@ -41,8 +42,10 @@ public class RememberItActionServlet extends HttpServlet {
 		switch (type) {
 		case "0":
 			String[] word = rememberit.getNextWord(true);
-			out.println(word[0]);
-			request.getSession().setAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT, word[1]);
+			if(word != null) {
+				out.println(word[0]);
+				request.getSession().setAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT, word[1]);
+			}
 			break;
 		case "1":
 			out.println((String)request.getSession().getAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT));

@@ -10,6 +10,15 @@ import words.Word;
 public class RememberIt implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private List<Word> words;
+	
+	public List<Word> getWords() {
+		return words;
+	}
+
+	public void setWords(List<Word> words) {
+		this.words = words;
+	}
+
 	private Random random;
 	private Language langFrom, langTo;
 	

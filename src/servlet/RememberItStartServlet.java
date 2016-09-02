@@ -33,7 +33,8 @@ public class RememberItStartServlet extends HttpServlet {
 
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Language lang1, lang2;
-				
+		
+		// get the languages
 		try {
 			lang1 = Language.valueOf((String)request.getParameter("lang1"));
 			lang2 = Language.valueOf((String)request.getParameter("lang2"));
@@ -42,7 +43,11 @@ public class RememberItStartServlet extends HttpServlet {
 			lang2 = Language.pt;
 		}
 		RememberIt rememberit = new RememberIt(FileUtil.readVocabularyFile(Constants.WORD_LIST) , lang1, lang2);
+		
+		// stores the vocabulary
 		request.getSession().setAttribute(Constants.SESSION_REMEMBERIT_OBJ, rememberit);
+		// stores the number of words in the vocabulary
+		request.getSession().setAttribute(Constants.SESSION_NUM_WORDS, rememberit.getWords().size());
 		
 		if (!response.isCommitted()) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/rit.jsp");			

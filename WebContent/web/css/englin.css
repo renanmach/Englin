@@ -25,6 +25,7 @@ body {
 	height: 400px;
 }
 
+
 .text-input {
 	border-width:1px;
 	border-style:solid;
@@ -32,4 +33,19 @@ body {
 	border-radius:10px;
 	height: 100px;
 	width: 300px;
+	display: table;
+	text-align: center;
 }
+
+.progress {
+	height: 50px;
+	width: 120px;
+}
+
+
+.middle-text {
+	display: table-cell;
+    vertical-align: middle;
+}
+
+

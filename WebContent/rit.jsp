@@ -1,3 +1,4 @@
+<%@page import="constants.Constants"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
@@ -45,36 +46,41 @@
       </div>
     </nav>
     
-   
-    
-    
-    
-    
+
      <div id="temp" class="container" >
 		<div class="center-menu" align="center">
 			<form method="post" onsubmit="nextWord(); return false;">
-			<div class="row">
+			<!-- Progress div -->
+			<div class="row" align="right" style="padding-right:20px;">
+				<div class="text-input progress"> 
+					<span class="middle-text" id="progress_div">
+						<span id="current_word">0</span>/<%=request.getSession().getAttribute(Constants.SESSION_NUM_WORDS)%>
+					</span>
+				</div>
 			</div>
 			<div class="row center">
 				<h2><b>Translate this word</b></h2>
 			</div>
 			
 			<div class="row" style="padding-top:20px;">	
-				<div class="col-lg-1 text-input col-lg-offset-2" id="text-input1" >
+				<!-- Left text box -->
+				<div class="col-lg-1 text-input col-lg-offset-2"  >
+					<span class="middle-text" id="text-input1"></span>
 				</div>
 				
 				<div class="col-sm-1" style="color: #6b0000;">
 					<h1><b>></b></h1>
 				</div>
 				
-				<div class="col-lg-1 text-input" id="text-input2">
-				
+				<!-- Right text box -->
+				<div class="col-lg-1 text-input">
+					<span class="middle-text" id="text-input2"></span>
 				</div>
 			</div>	
 			
 			<div class="row" style="padding-top:20px;">	
 				<div class="col-lg-1 col-lg-offset-9">
-						<input class="btn btn-md btn-danger" type="submit" value="Next">
+					<input class="btn btn-md btn-danger" type="submit" value="Next">
 				</div>
 			</div>
 			</form>
@@ -90,9 +96,6 @@
 	    	
 	   
     </div>
-    
-    
-    
     
     
     

@@ -1,7 +1,9 @@
-var flag=0;
+var flag=0; // to switch between the left and right text boxes
+var currentWord=0; // to show application progress
 
 function nextWord() {
 	ajaxRequest(getContextPath()+"/RememberItActionServlet","type="+flag);
+	
 }
 
 function ajaxRequest(url,parameters) {
@@ -24,14 +26,20 @@ function ajaxRequest(url,parameters) {
 	
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			// left box
 			if(flag==0) {
+				currentWord++; // show progress
+				// show progress
+				document.getElementById("current_word").innerHTML = currentWord;
 				document.getElementById(tag1).innerHTML = xhttp.responseText;
 				document.getElementById(tag2).innerHTML = "";
 				flag=1;
 			}
 			
+			// right box
 			else {
 				document.getElementById(tag2).innerHTML = xhttp.responseText;
+				
 				flag=0;
 			}
 		}
