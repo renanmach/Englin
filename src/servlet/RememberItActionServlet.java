@@ -43,8 +43,21 @@ public class RememberItActionServlet extends HttpServlet {
 		case "0":
 			String[] word = rememberit.getNextWord(true);
 			if(word != null) {
-				out.println(word[0]);
-				request.getSession().setAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT, word[1]);
+				String output = word[0];
+				if(output.length() > 1) {
+					out.println(output.substring(0, 1).toUpperCase()+output.substring(1));
+				}
+				else {
+					out.println(word[0]);
+				}
+				
+				output = word[1];
+				
+				if(output.length() > 1) {
+					output = output.substring(0, 1).toUpperCase()+output.substring(1);
+				}
+				
+				request.getSession().setAttribute(Constants.SESSION_REMEMBERIT_WORD_RIGHT, output);
 			}
 			else {
 				out.println(Constants.END_OF_LIST);

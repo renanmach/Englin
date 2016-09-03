@@ -59,19 +59,19 @@
 			<form method="post" onsubmit="nextWord(); return false;">
 			<!-- Progress div -->
 			<div class="row" align="right" style="padding-right:20px;">
-				<div class="text-input progress"> 
+				<div class="text-input progress selected-border"> 
 					<span class="middle-text" id="progress_div">
 						<span id="current_word">0</span>/<%=request.getSession().getAttribute(Constants.SESSION_NUM_WORDS)%>
 					</span>
 				</div>
 			</div>
 			<div class="row center">
-				<h2><b>Translate this word</b></h2>
+				<h2><b><fmt:message key="rit.just_rememberit"/></b></h2>
 			</div>
 			
 			<div class="row" style="padding-top:20px;">	
 				<!-- Left text box -->
-				<div class="col-lg-1 text-input col-lg-offset-2"  >
+				<div class="col-lg-1 text-input col-lg-offset-2" id="left_box">
 					<span class="middle-text" id="text-input1"></span>
 				</div>
 				
@@ -80,14 +80,14 @@
 				</div>
 				
 				<!-- Right text box -->
-				<div class="col-lg-1 text-input">
+				<div class="col-lg-1 text-input" id="right_box">
 					<span class="middle-text" id="text-input2"></span>
 				</div>
 			</div>	
 			
 			<div class="row" style="padding-top:20px;">	
 				<div class="col-lg-1 col-lg-offset-9">
-					<input class="btn btn-md btn-danger" type="submit" value="Next">
+					<input class="btn btn-md btn-danger" style="width:120px" id="translate_button" type="submit" value="Next">
 				</div>
 			</div>
 			</form>

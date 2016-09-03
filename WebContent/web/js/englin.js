@@ -30,6 +30,10 @@ function ajaxRequest(url,parameters) {
 			if(flag==0) {
 				response = xhttp.responseText.trim();
 				
+				$("#left_box").addClass("selected-border");
+				$("#right_box").removeClass("selected-border");
+				$("#translate_button").prop('value', 'Translate');
+				
 				// if there is no more words left to be displayed
 				if('endoflist' == response) {
 					restartRememberIt();
@@ -47,6 +51,9 @@ function ajaxRequest(url,parameters) {
 			
 			// right box
 			else {
+				$("#translate_button").prop('value', 'Next');
+				$("#left_box").removeClass("selected-border");
+				$("#right_box").addClass("selected-border");
 				document.getElementById(tag2).innerHTML = xhttp.responseText;
 				flag=0;
 			}
