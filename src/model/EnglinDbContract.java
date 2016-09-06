@@ -1,21 +1,17 @@
 package model;
 
 public class EnglinDbContract {
-	// Each vocabulary must create a table of this type
+	// Table holding information about the vocabularies
 	public static class VocabularyEntry {
-		public static final String COLUMN_LANGUAGE_1 = "language_1";
-		public static final String COLUMN_LANGUAGE_2 = "language_2";
+		public static final String TABLE_NAME = "vocabularies";
+		public static final String COLUMN_WORD_LANGUAGE_1 = "word_language_1";
+		public static final String COLUMN_WORD_LANGUAGE_2 = "word_language_2";
 		public static final String COLUMN_ID = "id";
 		public static final String COLUMN_EXAMPLE_PHRASE = "example_phrase";
+		public static final String COLUMN_VOCABULARY_NAME = "vocabulary_name";
 	}
 	
-	// Table with metadata about all vocabularies tables created
-	public static class MetaDataEntry {
-		public static final String TABLE_NAME = "metadata";	// this will be the primary key of this table
-		public static final String COLUMN_TABLES = "tables";
-		public static final String COLUMN_HAS_EXAMPLE_PHRASE = "has_example_phrase";
-		public static final String COLUMN_HAS_LETTERS_TIPS = "has_letters_tips";
-	}
+	// todo metadata table with the language 1 and 2 for the table name...
 }
 
 

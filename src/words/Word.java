@@ -8,8 +8,12 @@ import java.util.Map;
 
 import constants.Constants;
 
+// Class representing a word
 public class Word implements Serializable{
 	private static final long serialVersionUID = 4079382235045708574L;
+	
+	// This maps the languages of the word and a List with the word and 
+	// possibly its synonyms
 	private Map<Language, List<String>> wordMap;
 	
 	public Word(Map<Language, List<String>> wordMap) {
@@ -28,6 +32,7 @@ public class Word implements Serializable{
 		this.wordMap = wordMap;
 	}
 	
+	// add a new translation to the word map
 	public void addTranslation(String translation, Language language) {
 		List<String> l = wordMap.get(language);
 		

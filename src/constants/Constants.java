@@ -4,7 +4,7 @@ public final class Constants {
 	public static final String LANGUAGES_DELIMITER = ";";
 	public static final String OPTIONS_DELIMITER = ",";
 	
-	public static final String WORD_LIST = "/home/renan/Desktop/English/pv2.txt";
+	public static final String WORD_LIST = "/home/renan/Desktop/English/main_voc.txt";
 	
 	// RememberIt flag indicating the end of the word list
 	public static final String END_OF_LIST = "endoflist";
